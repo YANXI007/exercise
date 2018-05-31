@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+	    function fn() {
+	    	 alert("我们一直很努力"); 
+	    }
+
+	    var obj = {
+	    	a: 10,
+	    	b:function() {
+	    		alert("666");
+	    	},
+	    	c:fn,
+	    	d:["关羽","刘备","诸葛亮"],
+	    	birthday: {
+	    		year: 2017,
+	    		month: 10,
+	    		day: 1
+	    	}
+	    }
+        
+        obj.b();
+        obj.c();
+        console.log(obj.d[1]);
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+面向对象
+1 什么是对象
+    js对象有狭义、广义对象之分
+
+    1.1 狭义对象 指的是用 {} 定义的对象，它是一组无序的属性集合
+
+     // 描述小明 用{}形式包裹 
+	   var p1 = {
+           "name":"小明",
+           "age":24,
+           "hobby":["打豆豆","睡懒觉","写代码"]
+	   }; 
+
+	   p1只有3个属性，其他都没有
+
+	   数组也可以存储一组数据 ，但是不能更好表达语义
+
+	 1.2 广义对象------万物皆对象  
+
+	     DOM元素也是一个对象
+
+	      var box = document.getElementById("box");
+	    //alert(typeof box);
+	    box.mingzi = "xiaoming";
+	    box.age = 24;
+	    box.sex = "男";
+	    console.log(box.sex);
+
+	    DOM方法得到一个DOM元素，此时可以打点语法给这个DOM元素对象添加属性age、sex、mingzi,你不能说box这个对象只有这三个属性age、sex、mingzi,因为box代表一个dom元素
+
+	    function函数 array数组 regexp正则表达式 
+	    DOM元素  window document Math Date 
+	    Number String内置包装构造函数得到的值
+
+	     var str = new String("hello");
+
+	 1.3 基本类型不是对象
+
+2 对象和json的区别
+    json一定是对象，但对象不一定是json
+
+    下面的键都不符合命名规范，必须加引号
+
+    var obj = {
+        "-":"-",
+        "@@@":"@@@",
+        "2017":"2017",
+        "呵呵":"呵呵"
+    }
+
+    访问的时候 必须也加上双引号 用方括号表示
+       obj["2017"]
+
+
+3 对象的方法
+
+    假如对象的某个属性值是一个函数，我们把这个属性叫做这个对象的方法
+
+4  函数上下文
+     var obj = {
+          name:"xiaoming",
+          age: 21,
+          sex:"男",
+          sayHello:function() {
+          	 alert("大家好，我是"+this.name+"，我今年"+this.age+"岁了");
+          }
+	   };
+
+	   obj.sayHello();
+
+	 * obj.sayHello();当一个函数当作对象的方法被调用时，这个函数里的this指的就是该对象，所以现在sayHello函数的上下文就是obj对象，即函数内部this指向obj(this===obj) 
+
+	 * var fun = obj.sayHello;
+	     fun(); // 直接圆括号调用 不是对象打点调用 此时this===window 
+
+	 函数上下文是什么 取决于函数如何被调用 而不是函数如何定义
+	 
+	 记住五条规律
+	   a 函数直接圆括号调用 函数上下文就是window对象
+	   b 函数当作对象的方法被对象打点语法调用时，函数上下文就是该对象
+	   c 函数是事件处理函数 函数上下文就是触发这个事件的对象 
+	   d 定时器调用函数，上下文是window对象
+	   e 数组中存放的函数，被数组索引之后加圆括号调用 this代表这个数组  
+
+// 课堂小测
+
+    function fun(a,b,c,d,e) {
+       // this其实指的就是f函数的agruments对象 this.callee即f() 
+       alert(this.callee.length); // 指的是f函数的形参
+    }
+
+    function f(a,b) {
+       arguments[0](10,20,30,40,50);
+    }
+
+    f(fun,5,6,7);
+
+    arguments.callee是什么？函数内部要想得到函数自身，用this是不行的，此时必须用arguments.callee
+
+    arguments.callee.length // 形参个数
+    arguments.length // 实参个数
+
+
+
+
+
+
+
+	           

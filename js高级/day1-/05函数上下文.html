@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	   /*var obj = {
+          name:"xiaoming",
+          age: 21,
+          sex:"男",
+          sayHello:function() {
+          	 console.log(this.name);//
+          	 alert("大家好，我是"+this.name+"，我今年"+this.age+"岁了");
+          }
+	   };*/
+
+	   /*//obj.sayHello();
+	     var fun = obj.sayHello;
+	     fun();*/
+        
+        function fun() {
+        	 alert(this===arr);// true
+        	 alert(this.length); 
+        }
+
+        var arr = [fun,"东","西"];
+        arr[0]();
+
+	</script>
+</body>
+</html>
