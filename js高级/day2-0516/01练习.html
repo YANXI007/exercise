@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+	   /*
+	    function fun() {
+       		var b = 999;  // 局部变量
+       	    alert(this.b); // 等价于window.b 即888
+        }
+       var b = 888; // 全局变量
+       fun();
+       */
+       
+       /*
+       function fun() {
+       	   alert(this.a);// obj.a
+       }
+
+       var obj = {
+       	   "a":20,
+       	   "b":30,
+       	   "c":fun
+       }
+       
+       obj.c(); // 20
+       */
+        
+       /* 
+       function fn(f,a,b,c) {
+       	  // arguments [fn2,1,2,3,4,5]
+       	  arguments[0](10,20);
+       }
+
+
+       function fn2(l,m,n,o,p) {
+       	  // fn2中的arguments [10,20]
+       	  alert(this.length); //    6 此处this指的fn的arguments
+       	  alert(this.callee.length); //  4
+       	  alert(arguments.length); // 2
+       	  alert(arguments.callee.length); //  5
+       }
+
+       fn(fn2,1,2,3,4,5);
+       */
+        
+       var num = 4;
+       var obj = {
+       	  num: 6,
+       	  fn:(function() {
+       	  	  var num;
+              this.num *= 2; // this即window对象 让全局num = 8
+              num = num *2; // num = undefined*2 结果NaN
+              /*var num = 4; 此处会发生变量定义提升*/
+              num = 4; // 局部的num又设置为4
+              return function() {
+              	   this.num *= 2;
+              	   num*=3;
+              	   alert(num);
+              }
+       	  })()
+       }; 
+
+       var fn = obj.fn;
+       alert(num); // 全局num 8
+       fn(); // 弹出12 此时全局num变为16 函数体的num,由于闭包，用的是之前的num
+       obj.fn(); // 36  会让obj.num变为12
+       alert(window.num);  // 16
+       alert(obj.num);  // 12
+	</script>
+</body>
+</html>

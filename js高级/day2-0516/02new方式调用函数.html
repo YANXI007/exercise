@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+	    /*function fn() {
+	    	alert("阿龙老师666,带我飞");
+	    }
+
+	    new fn();*/
+
+
+        /*
+	    function fn() {
+	    	//console.log(this); // {}
+	    	this.name = "张晓龙";
+	    	this.age = 30;
+	    	this.sex = "男";
+	    	// 最后this {name:...,age:..,sex:}
+	    }
+
+	    var obj = new fn();
+	    console.log(obj.age);
+        */ 
+
+	    /*
+           var obj = new fn(); 
+
+            new的作用除了调用函数 还可以返回一个对象
+
+            步骤1 在真正执行函数体之前,函数内部先默认创建一个局部变量，是一个{} 空对象
+                2 让函数内部this指向该空对象 this === {} 
+                3 执行函数体
+                4 函数体全部执行完毕，函数会返回该对象(返回函数上下文)
+	    */
+        /* 构造函数*/
+	    function Student(name,sex,age) {
+            this.name = name;
+            this.sex = sex;
+            this.age = age;
+            this.hobby = ["学习","运动","尊师爱友"];
+            this.study = function() {
+            	alert("好好学习 天天向上");
+            }
+	    }
+
+	    var xiaoli = new Student("小丽","女",23);
+	    var xiaohong = new Student("小红","女",18);
+	    var xiaowei = new Student("小伟","男",24);
+
+	    console.log(xiaoli);
+	    console.log(xiaohong);
+	    console.log(xiaowei);
+
+	    xiaoli.study();
+	    Student("小明","男",40);
+	    alert(name);
+
+        function fn() {
+        	alert("hello");
+        }
+	</script>
+</body>
+</html>

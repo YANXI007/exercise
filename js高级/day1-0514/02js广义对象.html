@@ -10,48 +10,52 @@
 
 	    // DOM元素是一个对象
 	    var box = document.getElementById("box");
-	    //alert(typeof box);
+	    console.log(typeof box);  //object
 	    box.mingzi = "xiaoming";
 	    box.age = 24;
 	    box.sex = "男";
-	    console.log(box.sex);
+	    console.log(box.sex);//男
 
 	    // 数组也是对象
 	    var arr = [10,30,20,40];
-	    //alert(typeof arr);
+	    console.log(typeof arr);//object
 	    arr.name = "小红";
 	    arr.sex = "女";
 	    arr.hobby = ["跑步","看书","购物"];
 
 	    // 函数也是对象 
         function fn() {
-        	 alert("hello world");
+        	 console.log("hello world");
         }
 
         fn.aa = 100;
         fn.bb = 200;
 
-       /* alert(typeof(fn));// function 是一种object
-        alert(fn.aa);*/
+        console.log(typeof(fn));// function 是一种object
+		console.log(fn.aa);//100
 
         // 正则表达式也是对象
         var regexp = /\d/g;
         regexp.num = 5;
-        /*alert(typeof regexp);
-        alert(regexp.num);*/
+        console.log(typeof regexp);//object
+		 console.log(regexp.num);//5
 
-      /*
+        //Math是一个对象
+        Math.bb = "456";
+        console.log(typeof(Math));//object
+        console.log(Math.bb);//456
+
+		//不是对象
         var a = 2;
         a.xing = "张";
-        alert(a.xing);
+	   console.log(a.xing);//undefined
         var str ="112233";
         str.a = 6;
-        alert(str.a);*/
+	   console.log(str.a);//undefined
 
-        Math.bb = "456";
-        alert(Math.bb);
+
 
 
 	</script>
 </body>
-</html,
+</html>

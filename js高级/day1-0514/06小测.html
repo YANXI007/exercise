@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+<script type="text/javascript">
+	   function fn() {
+	       console.log(this);  //
+		   console.log(arguments.callee === fn);  //
+           console.log(arguments.callee.length);// 形参个数
+           console.log(arguments.length); // 实参个数
+           console.log(arguments[1]);    //
+	   }
+
+	   fn(1,2,3);
+
+
+
+   function fun(a,b,c,d,e) {
+       	console.log(this);
+       // this其实指的就是f函数的agruments对象 this.callee即f()
+	   	console.log(this.callee.length);
+
+    }
+
+    function f(a,b) {
+       // arguments	[fun,5,6,7]
+       arguments[0](10,20,30,40,50); // 
+    }
+
+    f(fun,5,6,7);
+</script>
+</body>
+</html>

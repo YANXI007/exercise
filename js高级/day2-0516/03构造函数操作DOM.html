@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+	   function CreateImg(name,src) {
+        this.name = name;
+        this.dom = document.createElement("img");
+        this.dom.src = src;
+        document.body.appendChild(this.dom);
+      }
+
+        var img1 =  new CreateImg("jd","1.jpg");
+        console.log(img1);
+	</script>
+</body>
+</html>
