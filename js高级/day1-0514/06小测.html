@@ -8,11 +8,12 @@
 	
 <script type="text/javascript">
 	   function fn() {
-	       console.log(this);  //
-		   console.log(arguments.callee === fn);  //
-           console.log(arguments.callee.length);// 形参个数
-           console.log(arguments.length); // 实参个数
-           console.log(arguments[1]);    //
+	       console.log(this);  // window对象
+	       console.log(this.callee);  //undefined
+		   console.log(arguments.callee === fn);  //true
+           console.log(arguments.callee.length);// 形参个数 0
+           console.log(arguments.length); // 实参个数   3
+           console.log(arguments[1]);    //   2
 	   }
 
 	   fn(1,2,3);
@@ -20,15 +21,16 @@
 
 
    function fun(a,b,c,d,e) {
-       	console.log(this);
+       	console.log(this);   //
        // this其实指的就是f函数的agruments对象 this.callee即f()
-	   	console.log(this.callee.length);
+	   	console.log(this.callee.length);   // 2
+	   	console.log(this.length);   // 4
 
     }
 
     function f(a,b) {
        // arguments	[fun,5,6,7]
-       arguments[0](10,20,30,40,50); // 
+       arguments[0](10,20,30,40,50);
     }
 
     f(fun,5,6,7);

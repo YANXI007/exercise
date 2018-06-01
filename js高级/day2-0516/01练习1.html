@@ -7,6 +7,11 @@
 <body>
 	
 	<script type="text/javascript">
+		/*var a;
+		console.log(a);//undefined
+		a*=2;
+		console.log(a);//NaN*/
+
 	   /*
 	    function fun() {
        		var b = 999;  // 局部变量
@@ -30,47 +35,46 @@
        obj.c(); //20
        */
         
-       /* 
-       function fn(f,a,b,c) {
+       /*function fn(f,a,b,c) {
        	  // arguments [fn2,1,2,3,4,5]
-       	  arguments[0](10,20);
+       	  arguments[0](10,20); // fn2(10,20);
+
        }
-
-
        function fn2(l,m,n,o,p) {
        	  // fn2中的arguments [10,20]
        	  alert(this.length); //    6 此处this指的fn的arguments
        	  alert(this.callee.length); //  4
-       	  alert(arguments.length); // 2
+       	  alert(arguments.length); //    2
        	  alert(arguments.callee.length); //  5
        }
+       fn(fn2,1,2,3,4,5);*/
 
-       fn(fn2,1,2,3,4,5);
-       */
-        
+
        var num = 4;
        var obj = {
        	  num: 6,
        	  fn:(function() {
        	  	  var num;
-              this.num *= 2; // this即window对象 让全局num = 8
-              num = num *2; // num = undefined*2 结果NaN
+              this.num *= 2; //window.num=8
+              num = num *2; //undefined->NaN
               /*var num = 4; 此处会发生变量定义提升*/
-              num = 4; // 局部的num又设置为4
+              num = 4; //
               return function() {
-              	   this.num *= 2;
-              	   num*=3;
-              	   alert(num);
+                  console.log(this);//num=6
+              	   this.num *= 2;//16
+				  console.log(this);//num=12
+              	   num*=4;
+              	   console.log(num);//12,36
               }
        	  })()
        }; 
 
        var fn = obj.fn;
-       alert(num); // 全局num 8
-       fn(); // 弹出12 此时全局num变为16 函数体的num,由于闭包，用的是之前的num,6
-       obj.fn(); // 36  会让obj.num变为12
-       alert(window.num);  // 16
-       alert(obj.num);  // 12
+       console.log(num); //  8
+		fn(); // 12
+		obj.fn(); //36
+		console.log(window.num);  //16
+		 console.log(obj.num);  //12
 	</script>
 </body>
 </html>
