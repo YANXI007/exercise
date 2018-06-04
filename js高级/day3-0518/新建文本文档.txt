@@ -1,0 +1,32 @@
+复习
+
+
+
+原型链
+
+ 所有的构造函数都有一个属性prototype,它指向的是构造函数原型,当你对构造函数new出一个实例时候，这个实例会有一个属性
+ __proto__,它指向的是构造函数的prototype,就是指向所谓的自己原型对象
+
+              prototype
+     People---------------> People.prototype
+                             ↑             
+              xiaoming-----_proto_ 
+
+
+      People.prototype 就是People的原型
+      
+      People.prototype是xiaoming的原型对象
+
+
+      三角关系 构造函数的prototype指向谁，new出来的对象的_proto_指的就是谁 
+
+      __proto__是神器，有原型链查找功能，当xiaoli身上没有某个属性的时候，系统会沿着__proto__去寻找它的原型对象上有没有这个属性
+
+
+      方法定义在构造函数原型,将来new出来的东西，__proto__ 会指向原型对象 
+
+
+      * 任何函数天生都有prototype,是一个空对象,prototype属性的值是一个对象
+         这个函数new出来的实例__proto__指向这个对象
+         记住 先看构造函数有没有调用方法，没有话查原型链
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	    function Cat() {
+
+	    }
+
+	    function Dog() {
+
+	    }
+
+	    Cat.prototype = new Dog();//
+	    console.log(Cat.prototype); // 狗的实例
+
+	    var hellokitty = new Cat();
+	    console.log(hellokitty); // 猫的实例
+	    // 
+	    console.log(hellokitty.constructor); // Dog
+
+	    console.log(hellokitty instanceof Dog);
+	    console.log(hellokitty instanceof Cat);
+	    // 访问hellokitty这个对象的原型链的每个原型对象 假如遍访到这个原型对象是某个构造函数的prototype,则认为是这个构造函数的实例
+	</script>
+</body>
+</html>

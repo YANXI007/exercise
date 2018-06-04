@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+	    // People类  Student类
+	    function People(name,age,sex) {
+	    	this.name = name;
+	    	this.age = age;
+	    	this.sex = sex;
+	    }
+
+	    //console.log( People.prototype.constructor);
+
+	    People.prototype.sayHi = function() {
+	    	 alert("Hi,我是"+this.name);
+	    }
+        
+        People.prototype.eat = function() {
+        	alert(this.name+"正在吃饭");
+        }
+
+
+        // 定义Student类
+        function Student(name,age,sex,xuehao,score) { 
+        	   // {}
+               People.apply(this,arguments);
+              //console.log(this.constructor); 
+              //this.constructor.apply(this,arguments);
+        	  this.xuehao = xuehao;
+        	  this.score = score;
+        }
+
+
+        
+        // 核心语句
+        Student.prototype = People.prototype;
+
+       
+
+        
+     
+        Student.prototype.study = function() {
+        	alert("good good study,day day up");
+        }
+
+        Student.prototype.play = function() {
+        	alert("正在吃鸡");
+        }
+
+        var xiaoming = new Student("小明",18,"男",10000010,78);
+        console.log(xiaoming.age);
+        console.log(xiaoming.sex);
+        console.log(xiaoming.name);
+        console.log(xiaoming.xuehao);
+        console.log(xiaoming.score);
+        console.log(xiaoming.constructor); 
+
+        xiaoming.eat();
+
+	</script>
+</body>
+</html>
+
+
+<!--
+
+	
+-->

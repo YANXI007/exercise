@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+	    function Cat(name,sex) {
+             this.name = name;
+             this.sex = sex;
+	    }
+
+	    //console.log(Cat.prototype.constructor);
+         
+       /*  简单粗暴*/
+        Cat.prototype = {
+        	sayHello:function() {
+        		alert("Hi,I am"+this.name);
+        	}
+        };
+         
+        // 追加属性 
+       /* Cat.prototype.sayHello = function() {
+        	 alert("Hi,I am"+this.name);
+        }*/
+
+	    var c1 = new Cat("花花",3);
+	    c1.sayHello();
+	</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+	   /*
+	    function People(name,sex,age) {
+            this.name = name;
+            this.sex = sex;
+            this.age = age;
+	    }
+
+	    var along = new People("阿龙","男",30);
+	    */
+
+	   var a = 3;
+	    var obj = {
+	    	a:1,
+	    	add:function() {
+	    		return ++this.a;
+	    	}
+	    }
+
+	    var add = obj.add;
+	    console.log(obj.add()); //
+	    console.log(add()); // 直接函数名()
+
+	    var obj2 = {
+	    	a:6,
+	    	add2:obj.add
+	    }
+
+	    console.log(obj2.add2()); //
+       console.log(obj2.a);//
+	</script>
+</body>
+</html>

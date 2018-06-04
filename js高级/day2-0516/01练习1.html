@@ -50,14 +50,14 @@
        fn(fn2,1,2,3,4,5);*/
 
 
-       var num = 4;
+       /*var num = 4;
        var obj = {
        	  num: 6,
        	  fn:(function() {
        	  	  var num;
               this.num *= 2; //window.num=8
               num = num *2; //undefined->NaN
-              /*var num = 4; 此处会发生变量定义提升*/
+              /!*var num = 4; 此处会发生变量定义提升*!/
               num = 4; //
               return function() {
                   console.log(this);//num=6
@@ -74,7 +74,16 @@
 		fn(); // 12
 		obj.fn(); //36
 		console.log(window.num);  //16
-		 console.log(obj.num);  //12
+		 console.log(obj.num);  //12*/
+
+        function fun() {
+            var b = 999;  // 局部变量
+            alert(this.b); // 等价于window.b 即888
+        }
+
+        var b = 888; // 全局变量
+        fun();
+        //如果底下没有定义var b = 888；则结果是 undefined
 	</script>
 </body>
 </html>

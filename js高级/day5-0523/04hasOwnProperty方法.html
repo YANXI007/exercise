@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+	   var obj = {
+	   	   x: 1,
+	   	   y: 2,
+	   	   z:3
+	   }
+
+	   obj.__proto__ = {
+	   	   h: 4   
+	   }
+
+	   console.log(obj.__proto__);
+
+
+        // hasOwnProperty定义在Object.prototype对象上
+	  /* alert(obj.hasOwnProperty("x"));
+	   alert(obj.hasOwnProperty("y"));
+	   alert(obj.hasOwnProperty("z"));*/
+	   alert(obj.hasOwnProperty("h")); // false 不考虑原型链 就看自己身上有没有该属性 不进行原型链查找
+
+
+	    // 只列举自己身上的所有的属性
+	    for(var k in obj) {
+	    	 /*if(obj.hasOwnProperty(k)) {
+	    	 	  console.log(k);
+	    	 }*/
+	    	 obj.hasOwnProperty(k)&&console.log(k);
+	    }
+
+
+
+	    // 对象打点验证某个属性是否存在
+	    console.log(obj.o); // undefined 该值证明obj没有o属性或o属性值是undefined 
+	    console.log(obj.x);
+	    console.log(obj.y);
+	    console.log(obj.z);
+	    console.log(obj.h); // 对象打点调用属性 遍历原型链
+	</script>
+</body>
+</html>

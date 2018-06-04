@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	   var obj = {
+	   	   a: 10,
+	   	   b: 20,
+	   	   c: true
+	   }
+
+	   obj.__proto__ = {
+	   	  x: 100
+	   }
+
+	   console.log(obj.__proto__.__proto__ == Object.prototype);
+
+	   Object.prototype.e = 150;
+	  
+
+	   /*console.log("a" in obj); // true 判断a是不是obj对象的属性
+	   console.log("b" in obj);
+	   console.log("x" in obj);
+	   console.log("e" in obj); // true
+*/
+	   // 分析 "e" in obj  
+	   // 首先看obj对象自己有木有e,木有的话，去原型链上找,找到就返回true,整个原型链上都木有的话 返回false
+
+
+	   for(var k in obj) {
+	   	   console.log(k);
+	   }
+	</script>
+</body>
+</html>

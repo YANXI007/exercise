@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	   div {
+	   	   width: 100px;
+	   	   height: 279px;
+	   	   background: url(img/deng.jpg) no-repeat;
+	   }
+	</style>
+</head>
+<body>
+	<div id="deng1">
+		
+	</div>
+	<div id="deng2">
+		
+	</div>
+	<script type="text/javascript">
+	    // 获取元素
+	   
+        var deng1 = document.getElementById("deng1");
+	    var deng2 = document.getElementById("deng2");
+          
+        var color = 0; // 一开始显示红色  
+	    // 
+	    deng1.onclick = function() {
+            color++;  
+            if(color>2) {
+            	color = 0;
+            }  
+            this.style.backgroundPosition = -color*100+"px 0px";
+	    }
+	    var color2 = 0; // 一开始显示红色  
+	    // 
+	    deng2.onclick = function() {
+            color2++;  
+            if(color2>2) {
+            	color2 = 0;
+            }  
+            this.style.backgroundPosition = -color2*100+"px 0px";
+	    }
+	</script>
+</body>
+</html>

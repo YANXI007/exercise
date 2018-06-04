@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	   div {
+	   	   width: 100px;
+	   	   height: 279px;
+	   	   background: url(img/deng.jpg) no-repeat;
+	   	   float: left;
+	   }
+	</style>
+</head>
+<body>
+	 
+
+	<script type="text/javascript">
+	    // 构造函数  创建一个DOM
+	    function Deng() {
+	    	//{}
+	    	 // 创建DOM元素
+	    	 this.dom = document.createElement("div");
+	    	 // 让DOM元素追加到body的末尾 上树
+	    	 document.body.appendChild(this.dom);
+	    	 // 定义自己的需要改变的值
+	    	 this.color = 0;
+
+	    	 // 复制一份
+	    	 var that = this; 
+	    	 this.dom.onclick = function() {
+	    	 	 that.color++;  
+                 if(that.color>2) {
+            	    that.color = 0;
+                 }  
+                 // 改变DOM对象的属性
+                 this.style.backgroundPosition = -that.color*100+"px 0px";
+	    	 }
+
+	    }
+
+	    /*new Deng();
+	    new Deng();*/
+	    for(var i=0; i<5; i++) {
+	    	new Deng();
+	    }
+	</script>
+</body>
+</html>

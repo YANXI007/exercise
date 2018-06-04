@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	   * {
+	   	 padding: 0;
+	   	 margin: 0;
+	   }
+	   html,body {
+	   	   height: 100%;
+	   }
+	   div.girl {
+	   	   width: 79px;
+	   	   height: 108px;
+	   	   background:  url(aisidier.png) 0 -216px no-repeat;
+	   	   position: absolute;
+	   }
+
+	   div.end {
+	   	   border: 2px solid #000;
+	   	   position: absolute;
+	   	   top: 0;
+	   	   left: 1000px;
+	   	   height: 100%;
+	   }
+
+
+	</style>
+</head>
+<body>
+
+	 <!--<div class="girl"></div>-->
+	<div class="end"></div>
+	<script type="text/javascript">
+	    /*var girl = document.getElementsByTagName("div")[0];
+	    var num = 0;
+	    setInterval(function() {
+             num++;
+             girl.style.left = num + "px";
+	    }, 30);*/
+
+        //  如何设计对象 女孩
+        function Girl() {
+        	 this.x = 0; // 水平距离
+        	 this.y = parseInt(Math.random()*(document.documentElement.clientHeight-108)); //竖直距离
+        	 this.speed = parseInt(Math.random()*10)+1;// 速度
+        	 this.step = 0; // 第几帧
+             this.isMove = true; 
+        	 // 上DOM树
+        	 this.init();
+        	 // 运动
+        	 this.move();
+             // 绑定事件
+             this.bindEvent();
+        }
+
+
+        // 方法定义在原型上
+        Girl.prototype.init = function() {
+        	this.dom = document.createElement("div");
+        	this.dom.className = "girl";
+        	document.body.appendChild(this.dom);
+        }
+
+        Girl.prototype.move = function() {
+        	var that = this;
+        	//console.log(that.x); 
+        	this.timer = setInterval(function() {
+                that.x += that.speed;
+                that.step++;
+                if(that.step>7) {
+                	that.step = 0;
+                } 
+                
+                if(that.x>1000) {
+                	document.body.removeChild(that.dom);
+                	clearInterval(that.timer);
+                } 
+                 
+
+                that.dom.style.left = that.x + "px";
+                that.dom.style.top = that.y + "px";
+                that.dom.style.backgroundPosition = -that.step*79+"px -216px";
+
+        	}, 100);
+        }  
+
+
+        Girl.prototype.bindEvent = function() {
+            var that = this;
+            that.dom.onclick = function() {
+                if(that.isMove) {
+                    clearInterval(that.timer);
+                    that.isMove = false;
+                } else {
+                    that.move();
+                    that.isMove = true;
+                }
+            }
+        }
+
+
+        new Girl();
+        new Girl();
+        new Girl();
+        new Girl();
+        new Girl();
+        new Girl();
+
+	</script>
+</body>
+</html>

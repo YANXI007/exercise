@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	   function People(name,sex,age) {
+            this.name = name;
+            this.sex = sex;
+            this.age = age;
+	    }
+
+	    console.log(People.prototype);
+
+	   People.prototype.teacher = {
+	    	tname:"老张",
+	    	caifu:"100",
+            zhishang:120
+	    }
+        
+        /*构造函数原型添加方法 将来可以被构造函数new出来的实例对象访问
+        原理: 计算机先看实例的构造函数中有木有say方法，假如没有，会通过自己的__proto__查找构造函数的原型，原型上有say方法  就会执行
+        */
+	    People.prototype.say = function() {
+            	console.log("大家好，我是"+this.name+"!我今年"+this.age+"岁");
+	    }
+
+
+
+	    var xiaowang = new People("小王","男",18);
+	    var xiaohua = new People("小花","女",16);
+	    var xiaoli = new People("小丽","女",26);
+
+	     console.log(xiaowang.teacher);
+	     console.log(xiaohua.teacher);
+	     console.log(xiaoli.teacher);
+         console.log(xiaoli.__proto__ === People.prototype);
+	     xiaowang.say();
+	     xiaohua.say();
+	     xiaoli.say();
+
+
+	     console.log(xiaowang.say === xiaoli.say);
+         
+         function fn() {
+
+         }  
+
+         console.log(fn.prototype);
+	</script>
+</body>
+</html>

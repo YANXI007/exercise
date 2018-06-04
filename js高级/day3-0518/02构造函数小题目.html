@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+	    function People(name,sex,age) {
+            this.name = name;
+            this.sex = sex;
+            this.age = age;
+            this.say = function() {
+            	console.log("大家好，我是"+this.name+"!我今年"+this.age+"岁");
+            }
+	    }
+        // 工厂模式
+	    function creatPeople(name,sex,age) {
+            var obj = {};
+            obj.name = name;
+            obj.sex = sex;
+            obj.age = age;
+            return obj;
+	    }
+        
+        console.log(creatPeople("首富","男",18));
+
+        
+        // {name:...,sex:...,age:...,say:func}
+        // {name:...,sex:...,age:...,say:func}
+	    var xiaowang = new People("小王","男",18);
+	    var xiaohua = new People("小花","女",16);
+
+	    xiaowang.say();
+	    xiaohua.say();
+
+        console.log(xiaowang.say === xiaohua.say); // false
+
+	</script>
+</body>
+</html>
