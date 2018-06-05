@@ -17,11 +17,11 @@
 	    //console.log( People.prototype.constructor);
 
 	    People.prototype.sayHi = function() {
-	    	 alert("Hi,我是"+this.name);
+	    	 console.log("Hi,我是"+this.name);
 	    }
         
         People.prototype.eat = function() {
-        	alert(this.name+"正在吃饭");
+        	console.log(this.name+"正在吃饭");
         }
 
 
@@ -29,7 +29,7 @@
         function Student(name,age,sex,xuehao,score) { 
         	   // {}
                People.apply(this,arguments);
-              //console.log(this.constructor); 
+              //console.log(this.constructor);
               //this.constructor.apply(this,arguments);
         	  this.xuehao = xuehao;
         	  this.score = score;
@@ -45,11 +45,11 @@
         
      
         Student.prototype.study = function() {
-        	alert("good good study,day day up");
+        	console.log("good good study,day day up");
         }
 
         Student.prototype.play = function() {
-        	alert("正在吃鸡");
+        	console.log(this.name+"正在吃鸡");
         }
 
         var xiaoming = new Student("小明",18,"男",10000010,78);
@@ -61,6 +61,7 @@
         console.log(xiaoming.constructor); 
 
         xiaoming.eat();
+        xiaoming.play();
 
 	</script>
 </body>

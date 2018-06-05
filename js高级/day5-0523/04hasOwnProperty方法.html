@@ -10,7 +10,7 @@
 	   var obj = {
 	   	   x: 1,
 	   	   y: 2,
-	   	   z:3
+	   	   z: 3
 	   }
 
 	   obj.__proto__ = {
@@ -21,10 +21,10 @@
 
 
         // hasOwnProperty定义在Object.prototype对象上
-	  /* alert(obj.hasOwnProperty("x"));
-	   alert(obj.hasOwnProperty("y"));
-	   alert(obj.hasOwnProperty("z"));*/
-	   alert(obj.hasOwnProperty("h")); // false 不考虑原型链 就看自己身上有没有该属性 不进行原型链查找
+	   /*console.log(obj.hasOwnProperty("x"));
+	   console.log(obj.hasOwnProperty("y"));
+	   console.log(obj.hasOwnProperty("z"));*/
+	   console.log(obj.hasOwnProperty("h")); // false 不考虑原型链 就看自己身上有没有该属性 不进行原型链查找
 
 
 	    // 只列举自己身上的所有的属性

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	   * {
+	   	 padding: 0;
+	   	 margin: 0;
+	   }
+	   html,body {
+	   	   height: 100%;
+	   }
+	   div.girl {
+	   	   width: 79px;
+	   	   height: 108px;
+	   	   background:  url(aisidier.png) 0 -216px no-repeat;
+	   	   position: absolute;
+	   }
+
+	   div.end {
+	   	   border: 2px solid #000;
+	   	   position: absolute;
+	   	   top: 0;
+	   	   left: 1000px;
+	   	   height: 100%;
+	   }
+	</style>
+</head>
+<body>
+	 <!--<div class="girl"></div>-->
+	<div class="end"></div>
+	<script type="text/javascript">
+
+        //  如何设计对象 女孩
+		function Girl() {
+			this.x = 0;
+			this.y = parseInt(Math.random()*(document.documentElement.clientHeight-108));
+			this.step = 0;
+			this.speed = parseInt(Math.random()*10)+1;
+			this.isMove = true;
+			this.init();
+//			this.move();
+			this.bindEvent();
+			Girls.push(this);
+        }
+
+        // 方法定义在原型上
+		Girl.prototype.init = function () {
+			this.dom = document.createElement("div");
+			this.dom.className = "girl";
+			document.body.appendChild(this.dom);
+        }
+
+        Girl.prototype.update = function () {
+		    if(!this.isMove) return;
+			var that = this;
+            that.x += that.speed;
+            that.step++;
+            if(that.step>7){
+                that.step = 0;
+            }
+            if(that.x>1000){
+                that.goDied();
+            }
+            that.dom.style.left = that.x+"px";
+            that.dom.style.top = that.y+"px";
+            that.dom.style.backgroundPosition = -that.step*79+"px -216px";
+		}
+
+        Girl.prototype.goDied = function () {
+            document.body.removeChild(this.dom);
+            for(var i=0;i<Girls.length;i++){
+                if(Girls[i]==this){
+                    Girls.splice(i,1);
+				}
+			}
+		}
+        Girl.prototype.bindEvent = function () {
+		    var that = this;
+		    that.dom.onclick = function () {
+                that.isMove = !that.isMove;
+            }
+		}
+
+		var Girls=[];
+		setInterval(function () {
+            for(var i=0;i<Girls.length;i++){
+                Girls[i].update();
+            }
+        },100);
+
+
+        new Girl();
+        new Girl();
+        new Girl();
+        
+	</script>
+</body>
+</html>

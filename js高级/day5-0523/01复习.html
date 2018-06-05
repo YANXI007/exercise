@@ -7,6 +7,9 @@
 <body>
 	
 	<script type="text/javascript">
+//        constructor：构造函数
+
+
 	    function Cat(name,sex) {
              this.name = name;
              this.sex = sex;
@@ -14,20 +17,38 @@
 
 	    //console.log(Cat.prototype.constructor);
          
-       /*  简单粗暴*/
+       /*  简单粗暴*/    /*不可以同时存在*/
         Cat.prototype = {
         	sayHello:function() {
-        		alert("Hi,I am"+this.name);
+        		console.log("Hi,I am"+this.name);
         	}
         };
+        /*Cat.prototype = {
+            saw:function () {
+		 console.log("aaa"+this.name);
+            }
+		}*/
          
-        // 追加属性 
-       /* Cat.prototype.sayHello = function() {
-        	 alert("Hi,I am"+this.name);
+        // 追加属性    /*可以同时存在*/
+        /*Cat.prototype.sayHello = function() {
+        	 console.log("Hi,I am"+this.name);
+        }
+        Cat.prototype.saw = function () {
+            console.log("aaa"+this.sex);
         }*/
 
 	    var c1 = new Cat("花花",3);
 	    c1.sayHello();
+	    c1.saw();
+	    var c2 = new Cat("yanxi",666);
+        c2.sayHello();
+	    c2.saw();
+	</script>
+	<script>
+		console.log(1+2==3);  //true
+		console.log(1+2===3);  //true
+		console.log(0.1+0.2==0.3); //false
+		console.log(0.1+0.2); //0.30000004
 	</script>
 </body>
 </html>
