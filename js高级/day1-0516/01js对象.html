@@ -13,6 +13,15 @@
            "age":24,
            "hobby":["打豆豆","睡懒觉","写代码"]
 	   }; 
-		</script>
+	</script>
+	<script>
+		function test() {
+			console.log(this.length);
+        }
+        var str = new String("12345");
+        str.test = test;
+        str.test();
+
+	</script>
 </body>
 </html>

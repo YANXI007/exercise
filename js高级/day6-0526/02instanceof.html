@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+
+	<script type="text/javascript">
+	   // instanceof用来检测某个对象是不是构造函数的实例
+	   function People(name) {
+	       this.name = name	
+	   }
+
+	   function Dog() {
+
+	   }
+
+	   var xiaoming = new People("小明");
+	   console.log(xiaoming instanceof People); // true
+	   console.log(xiaoming instanceof Dog); // false
+	   console.log(xiaoming instanceof Object); // true
+
+	   // 函数的prototype是对象的原型链上，此时返回true
+
+	   // Object.prototype 是所有人的原型链终点 所以任何对象 instanceof Object 一定是true
+	</script>
+</body>
+</html>

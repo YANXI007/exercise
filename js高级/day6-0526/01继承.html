@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+	   function People(name,sex,age) {
+	   	   /*  console.log(name);
+	   	     console.log(sex);*/
+            this.name = name;
+            this.sex = sex;
+            this.age = age;
+	   }
+
+	   // 原型上定义方法
+	   People.prototype.sayHello = function() {
+	   	   alert("Hi,我是"+this.name);
+	   }
+
+
+	   // 定义学生类
+	   function Student(name,sex,age,xuehao,score) {
+             /*this.name = name;
+             this.age = age;
+             this.sex = sex;*/
+             // this
+             People.apply(this,arguments);   //此时this指的是Student
+             this.xuehao = xuehao;
+             this.score = score;
+	   }
+       
+       // 核心
+	   Student.prototype = People.prototype;
+
+	   Student.prototype.study = function() {
+	   	   alert("我正在學習");
+	   }
+
+	   var xiaoming = new Student("xiaoming","男",20,10001,98);
+       console.log(xiaoming.xuehao);
+       console.log(xiaoming.sex);
+
+       xiaoming.study();
+       xiaoming.sayHello();
+
+
+	</script>
+</body>
+</html>

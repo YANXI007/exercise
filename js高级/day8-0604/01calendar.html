@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	   * {
+	   	   padding: 0;
+	   	   margin: 0;
+	   }
+
+	   .calendar {
+	   	   margin: 80px;
+	   	   position: relative;
+	   }
+
+	   .calendarDiv {
+	   	    width: 280px;
+	   	    border: 1px solid #999;
+	   	    position: absolute;
+	   	    top: 30px;
+	   	    display: none; 
+	   }
+
+	   .calendarDiv select {
+	   	   margin-right: 22px;
+	   }
+
+	   table {
+	   	   width: 100%;
+	   }
+
+	   table,tr,td,th {
+	   	    border: 1px solid #ccc;
+	   	    border-collapse: collapse;
+	   	    text-align: center;
+	   	    color: green;
+	   	    background: #333;
+	   }
+
+	   td {
+	   	  width: 40px;
+	   	  height: 20px;
+	   	  cursor: pointer;
+	   }
+
+	   .col {
+		   background-color: #ccc;
+	   }
+
+	   .cur {
+		   background-color: #f40;
+	   }
+	</style>
+</head>
+<body>
+	<!--存放文本框以及日历的容器-->
+	<div class="calendar" id="calendar"></div>
+	<script type="text/javascript" src="js/calendar.js"></script>
+	<script type="text/javascript">
+	     new Calendar({
+	     	"id":"calendar"
+	     });
+	</script>
+</body>
+</html>

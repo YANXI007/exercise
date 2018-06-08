@@ -1,0 +1,11 @@
+继承
+
+
+in 
+
+
+
+hasOwnProperty
+
+
+instanceof
